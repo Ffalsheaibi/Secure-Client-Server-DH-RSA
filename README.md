@@ -1,31 +1,58 @@
-# AVL-Project
-AVL Tree-based indexing system for fast word search and storage with frequency and location tracking (file &amp; line).
-# AVL Indexing System
+# Secure Client-Server using Diffie-Hellman and RSA
 
 ## Overview
-This project implements an efficient indexing system using an AVL Tree data structure.  
-It is designed to store and retrieve words from text files.
+This project demonstrates a simple secure communication system between a client and a server using Java.
 
-## Key Features
-- Efficient search, insert, and delete operations (O(log n))
-- Maintains a balanced tree using AVL rotations
-- Tracks word frequency
-- Stores word locations (file name and line number)
+It uses:
+- Diffie-Hellman (DH) for key exchange
+- RSA for encryption and decryption
 
-## Why AVL Tree?
-Unlike a normal Binary Search Tree, the AVL Tree automatically balances itself after every operation.  
-This guarantees consistent performance and avoids worst-case scenarios (O(n)).
+## How it works
+1. The server starts and listens on port 5002
+2. The client connects to the server
+3. Both exchange DH public keys
+4. Both generate a shared secret
+5. The server generates an RSA key pair
+6. The client encrypts a message using RSA public key
+7. The server decrypts the message using RSA private key
 
-## System Capabilities
-- Build index from multiple files
-- Search for any word and display its occurrences
-- Delete words from the index
-- Traverse the tree (Post-order)
+## Output
+- The program prints:
+  - Prime number (p)
+  - Generator (g)
+  - Decrypted message: Hello from client
 
 ## Technologies Used
 - Java
-- AVL Tree (Data Structure)
-- Linked List (for storing occurrences)
+- Socket Programming
+- Java Cryptography (JCE)
 
-## Learning Outcome
-This project demonstrates how data structures can be used to build efficient and scalable search systems.
+## Files
+- SimpleServer.java
+- SimpleClient.java
+
+## How to Run
+1. Run SimpleServer.java
+2. Run SimpleClient.java
+
+## Example Output
+Server:
+
+[Server] Listening on 5002
+p = ...
+g = ...
+Decrypted: Hello from client
+
+
+Client:
+
+[Client] Connected
+p = ...
+g = ...
+[Client] Sent
+
+
+## Notes
+- DH and RSA use 2048-bit keys
+- X.509 format is used for public key encoding
+- Base64 is used to encode keys and messages
